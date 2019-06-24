@@ -18,33 +18,44 @@ const toggleText = (index, state) => {
   }
 }
 
-toggleText(0, 'show');
+function scrollLeft() {
+  if (index < 12) {
+    toggleText(index, 'hide');
+    index--;
+    content.forEach((section, i) => {
+      if (i === index) {
+        toggleText(i, 'show');
+        stepRemove();
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  } else {
+    console.log('finish to scroll sir')
+  }
+}
 
-prev.addEventListener('click', () => {
-  if (index < 1) return;
+function scrollRight() {
   toggleText(index, 'hide');
-  index--;
-  content.forEach((section, i) => {
-    if (i === index) {
-      toggleText(i, 'show');
-      stepRemove();
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-})
-
-next.addEventListener('click', () => {
-  if (index > 10) return;
-  toggleText(index, 'hide');
-  index++;
+  index++
   content.forEach((section, i) => {
     if (i === index) {
       toggleText(i, 'show');
       stepAdd();
-      console.log(section);
       section.scrollIntoView({ behavior: "smooth" });
     }
-  })
+  });
+}
+
+toggleText(0, 'show');
+
+prev.addEventListener('click', () => {
+  if (index < 1) return;
+  scrollLeft()
+})
+
+next.addEventListener('click', () => {
+  if (index > 10) return;
+  scrollRight()
 })
 
 var steps = document.querySelectorAll('.step-indicator')
@@ -54,7 +65,16 @@ function stepAdd() {
   steps[index].classList.add('completed')
 }
 function stepRemove() {
-  steps[index].classList.remove('completed')
+  let indexPosition = index;
+  if (index = 0) {
+    indexPosition = -1;
+  }
+  if (indexPosition != -1) {
+    steps[index + 1].classList.remove('completed')
+    console.log('index: ', index);
+  } else {
+    console.log('hey: ', 'hey');
+  }
 }
 
 
