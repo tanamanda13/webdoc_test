@@ -8,4 +8,4 @@ const DB_SGBD = 'mysql';
 const DB_HOST = 'localhost';
 const DB_DBNAME = 'webdoc';
 const DB_USER = 'root';
-const DB_PASS = '';
+const DB_PASS = 'root';
