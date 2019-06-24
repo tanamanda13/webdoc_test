@@ -8,8 +8,6 @@
 }
 
 body {
-  overflow: hidden;
-  height: 200vh;
 }
 
 /* FONTS */
@@ -217,8 +215,8 @@ TIMELINE
   flex-direction: row;
 }
 
-.step__3bars {
-  width: 33.33333333%;
+.step__5bars {
+  width: 20%;
   height: 80%;
 }
 
