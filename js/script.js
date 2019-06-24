@@ -2,6 +2,7 @@ const content = document.querySelectorAll('.sectionId');
 console.log('content: ', content);
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
+var counter = 0;
 const idlePeriod = 100;
 const animationDuration = 10 - 000;
 
@@ -94,15 +95,48 @@ function stepRemove() {
 //   }
 // })
 
-
 /* 
+SCROLL FORCÉ
+*/
+
+
+document.addEventListener('wheel', event => {
+  var delta = event.wheelDelta;
+  var timeNow = new Date().getTime();
+  // Cancel scroll if currently animating or within quiet period
+  if (timeNow - lastAnimation < idlePeriod + animationDuration) {
+    event.preventDefault();
+    return;
+  }
+  if (delta < 0) {
+    counter += 1
+    if (counter % 10 === 0) {
+      var event = new Event('click');
+      next.dispatchEvent(event); console.log(counter)
+      stepAdd();
+    }
+
+
+
+  } else {
+    counter += 1
+    if (counter % 10 === 0) {
+      var event = new Event('click');
+      prev.dispatchEvent(event); console.log(counter)
+      stepRemove();
+    }
+  }
+  lastAnimation = timeNow;
+})
+
+/*
 TOOLTIPS
 */
 
-let toolTips = document.querySelectorAll('.tooltips');
-let toolTipsContent = document.querySelector('.tooltips__content');
+// let toolTips = document.querySelectorAll('.tooltips');
+// let toolTipsContent = document.querySelector('.tooltips__content');
 
-toolTips.addEventListener('click', function () {
-  toolTips.classList.toggle('is-open');
-  toolTipsContent.classList.toggle('is-open');
-});
+// toolTips.addEventListener('click', function () {
+//   toolTips.classList.toggle('is-open');
+//   toolTipsContent.classList.toggle('is-open');
+// });

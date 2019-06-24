@@ -43,7 +43,6 @@ include 'assets/inc/header.php';
 
 
 
-
 <body>
   <!-- CHAPITRE 1 -->
   <section class="container container--page1">
