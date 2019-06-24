@@ -5,11 +5,13 @@
       <p class="step__texts--years">IL Y A 1 MILLIARD D'ANNÉES</p>
     </div>
     <div class="step steps__bar ">
-      <div class="step-indicator step__3bars"></div>
-      <div class="step-indicator step__3bars"></div>
-      <div class="step-indicator  step__3bars"></div>
-    </div>
-
+      <div class="step-indicator step__5bars completed"></div>
+      <div class="step-indicator step__5bars"></div>
+      <div class="step-indicator step__5bars"></div>
+      <div class="step-indicator step__5bars"></div>
+    
+    <div class="step-indicator step__5bars"></div>
+  </div>
     <div class="step__text--default two">
       <p class="step__texts--mb">Le big bang biologique</p>
       <p class="step__texts--years">500 millions d’années</p>
@@ -32,8 +34,7 @@
       <p class="step__texts--years">65 millions d’années</p>
     </div>
     <div class="step steps__bar">
-      <div class=" step-indicator step__2bars"></div>
-      <div class=" step-indicator step__2bars"></div>
+      <div class=" step-indicator step__1bar"></div>
     </div>
     <div class="step__text--default five">
       <p class="step__texts--mb">Le WOOD WIDE WEB</p>
@@ -48,8 +49,6 @@
       <p class="step__texts--years">De nos jours</p>
     </div>
     <div class="step steps__bar">
-      <div class=" step-indicator step__2bars"></div>
-      <div class=" step-indicator step__2bars"></div>
     </div>
     <div class="step__text--default seven">
       <p class="step__texts--mb">La Clé de notre Futur</p>
