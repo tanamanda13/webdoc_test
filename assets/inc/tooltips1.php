@@ -3,7 +3,7 @@
     Comment les champignons façonnent la roche ?
   </span>
 
-  <div class="tooltips">
+  <div class="tooltips--1">
     <div class="tooltips__content">
     <h1 class="tooltips__title">Les champignons fracturent la roche avec leurs hyphes</h1>
     <video autoplay muted loop class="tooltips_video">

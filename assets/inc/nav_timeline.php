@@ -1,8 +1,8 @@
 <header id="header" class="header">
   <section class="steps">
-    <div class="step__text--default">
+    <div class="step__text--default one">
       <p class="step__texts--mb">DE LA ROCHE À LA TERRE</p>
-      <p class="step__texts--years">IL Y A 1 MILLIARD D'ANNÉES</p>
+      <p class="ste p__texts--years">IL Y A 1 MILLIARD D'ANNÉES</p>
     </div>
     <div class="step steps__bar ">
       <div class="step-indicator step__5bars none"></div>
