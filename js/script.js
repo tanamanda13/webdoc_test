@@ -1,32 +1,42 @@
 const content = document.querySelectorAll('.sectionId');
+var header = document.querySelector('header');
 console.log('content: ', content);
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
-var counter = 0;
 const idlePeriod = 100;
 const animationDuration = 10 - 000;
 
+var counter = 0;
 let lastAnimation = 0;
-let index = 0;
+var index = 0;
 
+if (index === 0) {
+  header.classList.add('inactive')
+}
 
-const toggleText = (index, state) => {
+const toogleAnimation = (index, state) => {
   if (state === 'show') {
-    content[index].querySelector('.box__content').classList.add('show');
+    setTimeout(() => {
+      content[index].querySelector('.box__content').classList.add('show');
+    }, 1500);
+
   } else {
     content[index].querySelector('.box__content').classList.remove('show');
   }
 }
 
-toggleText(0, 'show');
+toogleAnimation(0, 'show');
 
 prev.addEventListener('click', () => {
+  if (index === 0) {
+    header.style.opacity = "0";
+  }
   if (index < 1) return;
-  toggleText(index, 'hide');
+  toogleAnimation(index, 'hide');
   index--;
   content.forEach((section, i) => {
     if (i === index) {
-      toggleText(i, 'show');
+      toogleAnimation(i, 'show');
       stepRemove();
       section.scrollIntoView({ behavior: "smooth" });
     }
@@ -34,12 +44,15 @@ prev.addEventListener('click', () => {
 })
 
 next.addEventListener('click', () => {
-  if (index > 10) return;
-  toggleText(index, 'hide');
+  if (index !== 0) {
+    header.style.opacity = "1"
+  }
+  if (index > 11) return;
+  toogleAnimation(index, 'hide');
   index++;
   content.forEach((section, i) => {
     if (i === index) {
-      toggleText(i, 'show');
+      toogleAnimation(i, 'show');
       stepAdd();
       console.log(section);
       section.scrollIntoView({ behavior: "smooth" });
@@ -47,20 +60,73 @@ next.addEventListener('click', () => {
   })
 })
 
+window.onkeyup = function (e) {
+  var key = e.keyCode ? e.keyCode : e.which;
+
+  if (key == 37) {
+    index--;
+    content.forEach((section, i) => {
+      if (i === index) {
+        toogleAnimation(i, 'show');
+        stepRemove();
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  } else if (key == 39) {
+    index++;
+    content.forEach((section, i) => {
+      if (i === index) {
+        toogleAnimation(i, 'show');
+        stepAdd();
+        console.log(section);
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    })
+  }
+}
+
+document.addEventListener('wheel', event => {
+  var delta = event.wheelDelta;
+  var timeNow = new Date().getTime();
+  // Cancel scroll if currently animating or within quiet period
+  if (timeNow - lastAnimation < idlePeriod + animationDuration) {
+    event.preventDefault();
+    return;
+  }
+  if (delta < 0) {
+    counter += 1
+    if (counter % 10 === 0) {
+      var event = new Event('click');
+      next.dispatchEvent(event); console.log(counter)
+      stepAdd();
+    }
+  } else {
+    counter += 1
+    if (counter % 10 === 0) {
+      var event = new Event('click');
+      prev.dispatchEvent(event); console.log(counter)
+      stepRemove();
+    }
+  }
+  lastAnimation = timeNow;
+})
+
 var steps = document.querySelectorAll('.step-indicator')
 console.log('steps: ', steps);
 
 function stepAdd() {
+  if (index == 1) {
+    steps[0].classList.add('completed')
+  }
   steps[index].classList.add('completed')
 }
 function stepRemove() {
-  steps[index].classList.remove('completed')
+  steps[index + 1].classList.remove('completed')
 }
 
-
-// /*
-// // VIDEO
-// */
+/*
+// VIDEO
+*/
 
 // var vid = document.getElementById("bgvid");
 // var pauseButton = document.querySelector(".pauseBtn");
@@ -95,37 +161,9 @@ function stepRemove() {
 //   }
 // })
 
-/* 
-SCROLL FORCÉ
-*/
+// function stopHeroTimeline() {
 
-
-document.addEventListener('wheel', event => {
-  var delta = event.wheelDelta;
-  var timeNow = new Date().getTime();
-  // Cancel scroll if currently animating or within quiet period
-  if (timeNow - lastAnimation < idlePeriod + animationDuration) {
-    event.preventDefault();
-    return;
-  }
-  if (delta < 0) {
-    counter += 1
-    if (counter % 10 === 0) {
-      var event = new Event('click');
-      next.dispatchEvent(event); console.log(counter)
-      stepAdd();
-    }
-
-  } else {
-    counter += 1
-    if (counter % 10 === 0) {
-      var event = new Event('click');
-      prev.dispatchEvent(event); console.log(counter)
-      stepRemove();
-    }
-  }
-  lastAnimation = timeNow;
-})
+// }
 
 /*
 TOOLTIPS

@@ -115,6 +115,7 @@ include 'assets/inc/header.php';
             terre ferme délaissant le milieu aquatique. De bleue, notre planète devient verte.</p>
         </div>
         <?php include 'assets/inc/tooltips2.php' ?>
+        <?php include 'assets/inc/tooltips3.php' ?>
       </div>
     </article>
 

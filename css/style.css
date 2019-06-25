@@ -310,6 +310,13 @@ TIMELINE
   border: 2px solid var(--dark-pink);
 }
 
+.none {
+  background-color: #C8C8C8;
+}
+.inactive {
+  opacity: 0
+}
+
 /* 
 HERO 
 */
@@ -565,7 +572,7 @@ TOOLTIPS
   width: 25px;
   border-radius: 50%;
   overflow: hidden;
-  background-color: rgba(65, 38, 37, 0.98);
+  background-color: rgba(206, 195, 194, 0.98);
   border: 10px solid rgba(226, 157, 156, 0.1);
   /* filter: blur(10%); */
   transition: height 0.5s, width 0.5s, border-radius 0.3s, opacity 0.5s;
@@ -619,6 +626,7 @@ TOOLTIPS
 
 .tooltips__title {
   max-width: 600px;
+  margin: 5px auto;
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -628,11 +636,12 @@ TOOLTIPS
 
 .tooltips__text {
   max-width: 600px;
+  margin: 5px auto;
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 140%;
-  color: white;
+  color: var(--brown);
 }
 
 
@@ -640,15 +649,15 @@ TOOLTIPS
   max-width: 100%;
 }
 
-/* Positionnement des toltips */
+/* Positionnement des tooltips */
 .tooltipss__positionnement {
   position: absolute;
   bottom: 50px; 
-  right: 1050px;
+  right: 550px;
 }
 
 .tooltipss__positionnement--2 {
   position: absolute;
-  bottom: 30px; 
-  right: 350px;
+  bottom: 50px; 
+  right: 650px;
 }
