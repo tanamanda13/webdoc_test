@@ -1,8 +1,8 @@
 <?php
 require_once 'assets/config/bootstrap.php';
 
-//$article = getArticle($pdo, $_GET['id'] ?? 0);
-$article = getArticle($pdo, $idd ?? 0);
+$article = getArticle($pdo, $_GET['id'] ?? 0);
+//$article = getArticle($pdo, $idd ?? 0);
 
 if (!$article) {
   addFlash('danger', 'Article inconnue');
@@ -13,9 +13,9 @@ if (!$article) {
 // Traitement du formulaire d'edition
 if (isset($_POST['edit'])) {
   //$eId = $_SESSION['article']['id'];
-  $eId = $_GET['id'];
+  $eId = $article['id'];
   //$eId = intval($_GET['id']);
-  $idd = (int)$eId;
+  //$idd = (int)$eId;
   $titre = trim(strip_tags($_POST['titre']));
   $description = trim(strip_tags($_POST['description']));
 
@@ -26,9 +26,9 @@ if (isset($_POST['edit'])) {
   } else {
     $req = $pdo->prepare(
       "UPDATE article SET
-        titre = '$titre'
-        WHERE id = :eId"
-        
+        titre = '$titre',
+        description = '$description'
+        WHERE id = '$eId'"
     );
     $req->bindParam(':titre', $titre);
     //$req->bindParam(':id', $eId);
@@ -45,7 +45,7 @@ if (isset($_POST['edit'])) {
     if (!$exec) {
       addFlash('danger', 'Problème SQL');
     } else {
-      addFlash('success', 'Article enregistré !');
+      addFlash('success', 'Modification enregistrée !');
       unset($_POST);
     }
   }
@@ -60,7 +60,7 @@ include 'assets/inc/header.php';
 
     <?php viewFlashes(); ?>
 
-    <form action="article_edit.php" method="post">
+    <form action="article_edit.php?id=<?= $_GET['id'] ?>" method="post">
       <div class="form-group">
         <label>Titre</label>
         <input type="text" name="titre" class="form-control" value="<?= $article['titre']; ?>">
@@ -74,8 +74,7 @@ include 'assets/inc/header.php';
       <input type="submit" name="edit" value="Modifier" class="btn btn-primary">
     </form>
   </div>
-  <?php echo intval($_GET['id']);?>
-  <?php echo $article ?>
+
 
 <?php include 'assets/inc/footer.php'; ?>
 

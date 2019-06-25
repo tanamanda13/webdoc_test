@@ -17,7 +17,7 @@ include 'assets/inc/header.php';
     <table class="table">
       <thead>
         <tr>
-         
+          <th scope="col">#</th>
           <th scope="col">Titre</th>
           <th scope="col">Description</th>
           <th></th>

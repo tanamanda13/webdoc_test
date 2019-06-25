@@ -79,17 +79,17 @@ function allArticles(PDO $con) : array
 }
 
 // Récupérer les informations d'un article
-// function getArticle(PDO $con, int $id)
-// {
-//   $req = $con->prepare(
-//     'SELECT *
-//     FROM article
-//     WHERE id = :id'
-//   );
-//   $req->bindParam(':id', $id, PDO::PARAM_INT);
-//   $req->execute();
-//   return $req->fetch(PDO::FETCH_ASSOC);
-// }
+function getArticle(PDO $con, int $id)
+{
+  $req = $con->prepare(
+    'SELECT *
+    FROM article
+    WHERE id = :id'
+  );
+  $req->bindParam(':id', $id, PDO::PARAM_INT);
+  $req->execute();
+  return $req->fetch(PDO::FETCH_ASSOC);
+}
 
 
 // function getArticle(PDO $con, int $idd)
@@ -108,18 +108,18 @@ function allArticles(PDO $con) : array
 //   return $req->fetch(PDO::FETCH_ASSOC);
 // }
 
-function getArticle(PDO $con, int $idd)
-{
-  $idd = $_GET['id'];
+// function getArticle(PDO $con, int $idd)
+// {
+//   $idd = $_GET['id'];
 
-  $req = $con->prepare(
-    "SELECT *
-    FROM article
-    WHERE id = :idd"
+//   $req = $con->prepare(
+//     "SELECT *
+//     FROM article
+//     WHERE id = :idd"
     
-  );
-  //$req->bindParam(':id', $id, PDO::PARAM_INT);
-  $req->bindParam(':idd', $idd, PDO::PARAM_INT);
-  $req->execute();
-  return $req->fetch(PDO::FETCH_ASSOC);
-}
+//   );
+//   //$req->bindParam(':id', $id, PDO::PARAM_INT);
+//   $req->bindParam(':idd', $idd, PDO::PARAM_INT);
+//   $req->execute();
+//   return $req->fetch(PDO::FETCH_ASSOC);
+// }
