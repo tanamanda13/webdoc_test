@@ -1,6 +1,8 @@
 <?php
 require_once 'assets/config/bootstrap.php';
 
+
+
 // Traitement du formulaire d'ajout
 if (isset($_POST['add'])) {
   $titre = trim(strip_tags($_POST['titre']));

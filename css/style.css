@@ -1,4 +1,4 @@
-/* body {
+body {
   background-color: blue;
 }
 
@@ -10,4 +10,9 @@ a {
 .container--page1 {
   background-color: yellow;
   height: 100vh;
-} */
+}
+
+.container--page2 {
+  background-color: rgb(113, 187, 84);
+  height: 100vh;
+}

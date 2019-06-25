@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/tanamanda13/webdoc_test/issues"
   },
-  "homepage": "https://github.com/tanamanda13/webdoc_test#readme"
+  "homepage": "https://github.com/tanamanda13/webdoc_test#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.3"
+  }
 }

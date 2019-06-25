@@ -1,7 +1,8 @@
 <?php
 require_once 'assets/config/bootstrap.php';
 
-$article = getArticle($pdo, $_GET['id'] ?? 0);
+//$article = getArticle($pdo, $_GET['id'] ?? 0);
+$article = getArticle($pdo, $idd ?? 0);
 
 if (!$article) {
   addFlash('danger', 'Article inconnue');
@@ -9,8 +10,12 @@ if (!$article) {
   header('Location: index.php');
 }
 
-// Traitement du formulaire d'ajout
-if (isset($_POST['add'])) {
+// Traitement du formulaire d'edition
+if (isset($_POST['edit'])) {
+  //$eId = $_SESSION['article']['id'];
+  $eId = $_GET['id'];
+  //$eId = intval($_GET['id']);
+  $idd = (int)$eId;
   $titre = trim(strip_tags($_POST['titre']));
   $description = trim(strip_tags($_POST['description']));
 
@@ -20,15 +25,16 @@ if (isset($_POST['add'])) {
     addFlash('danger', 'Le description ne peut contenir plus de 255 caractères');
   } else {
     $req = $pdo->prepare(
-      'INSERT INTO article (
-        titre,
-        description
-      ) VALUES (
-        :titre,
-        :desc
-      )'
+      "UPDATE article SET
+        titre = '$titre'
+        WHERE id = :eId"
+        
     );
     $req->bindParam(':titre', $titre);
+    //$req->bindParam(':id', $eId);
+    $req->bindParam(':eid', $eId);
+    //$req->bindParam(':id', $idd);
+    //$req->bindParam(':id', $_GET['id']);
     // bindParam() n'accepte que des variables
     // Récupérer la première valeur truthy:
     // $val1 ?: $val2 ?: $val3
@@ -54,8 +60,6 @@ include 'assets/inc/header.php';
 
     <?php viewFlashes(); ?>
 
-
-
     <form action="article_edit.php" method="post">
       <div class="form-group">
         <label>Titre</label>
@@ -70,5 +74,8 @@ include 'assets/inc/header.php';
       <input type="submit" name="edit" value="Modifier" class="btn btn-primary">
     </form>
   </div>
+  <?php echo intval($_GET['id']);?>
+  <?php echo $article ?>
 
 <?php include 'assets/inc/footer.php'; ?>
+

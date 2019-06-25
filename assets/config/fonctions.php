@@ -70,7 +70,7 @@ function getUserInfo(string $info) : ? string
 
 
 
-// Récupérer la liste des catégories
+// Récupérer la liste des articles
 // On peut typer ses arguments avec le nom d'une classe
 function allArticles(PDO $con) : array
 {
@@ -79,14 +79,47 @@ function allArticles(PDO $con) : array
 }
 
 // Récupérer les informations d'un article
-function getArticle(PDO $con, int $id)
+// function getArticle(PDO $con, int $id)
+// {
+//   $req = $con->prepare(
+//     'SELECT *
+//     FROM article
+//     WHERE id = :id'
+//   );
+//   $req->bindParam(':id', $id, PDO::PARAM_INT);
+//   $req->execute();
+//   return $req->fetch(PDO::FETCH_ASSOC);
+// }
+
+
+// function getArticle(PDO $con, int $idd)
+// {
+//   $idd = $_GET['id'];
+
+//   $req = $con->prepare(
+//     "SELECT *
+//     FROM article
+//     WHERE id = '$idd'"
+    
+//   );
+//   //$req->bindParam(':id', $id, PDO::PARAM_INT);
+//   //$req->bindParam(':id', $id, PDO::PARAM_INT);
+//   $req->execute();
+//   return $req->fetch(PDO::FETCH_ASSOC);
+// }
+
+function getArticle(PDO $con, int $idd)
 {
+  $idd = $_GET['id'];
+
   $req = $con->prepare(
-    'SELECT *
+    "SELECT *
     FROM article
-    WHERE id = :id'
+    WHERE id = :idd"
+    
   );
-  $req->bindParam(':id', $id, PDO::PARAM_INT);
+  //$req->bindParam(':id', $id, PDO::PARAM_INT);
+  $req->bindParam(':idd', $idd, PDO::PARAM_INT);
   $req->execute();
   return $req->fetch(PDO::FETCH_ASSOC);
 }
