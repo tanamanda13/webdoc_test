@@ -8,6 +8,7 @@
 }
 
 body {
+  overflow: hidden;
 }
 
 /* FONTS */
@@ -555,16 +556,43 @@ TOOLTIPS
   height: 100px;
 }
 
-.tooltipss__positionnement {
+.tooltips {
   position: absolute;
-  bottom: 50px; 
-  right: 1050px;
+  margin-top: 8%;
+  /* bottom: 100px; 
+  right: 800px; */
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: rgba(65, 38, 37, 0.98);
+  border: 10px solid rgba(226, 157, 156, 0.1);
+  /* filter: blur(10%); */
+  transition: height 0.5s, width 0.5s, border-radius 0.3s, opacity 0.5s;
 }
 
-.tooltipss__positionnement--2 {
-  position: absolute;
-  bottom: 30px; 
-  right: 550px;
+.tooltips.is-open {
+  height: 500px;
+  width: 700px;
+  border-radius: 1%;
+  border: 5px solid rgba(226, 157, 156, 0.1);
+  bottom: 30px;
+  right: -100px;
+  opacity: 1;
+  z-index: 100;
+}
+
+.tooltips__content {
+  position: relative;
+  /* width: max-content; */
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tooltips__content.is-open{
+  opacity:1;
 }
 
 .tooltips__name {
@@ -589,40 +617,38 @@ TOOLTIPS
   color: white;
 }
 
-.tooltips {
+.tooltips__title {
+  max-width: 600px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 140%;
+  color: var(--dark-pink);
+}
+
+.tooltips__text {
+  max-width: 600px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 140%;
+  color: white;
+}
+
+
+.tooltips__image {
+  max-width: 100%;
+}
+
+/* Positionnement des toltips */
+.tooltipss__positionnement {
   position: absolute;
-  margin-top: 8%;
-  /* bottom: 100px; 
-  right: 800px; */
-  height: 25px;
-  width: 25px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: var(--light-grey);
-  border: 10px solid rgba(226, 157, 156, 0.1);
-  /* filter: blur(10%); */
-  transition: height 0.5s, width 0.5s, border-radius 0.3s, opacity 0.5s;
+  bottom: 50px; 
+  right: 1050px;
 }
 
-.tooltips.is-open {
-  height: 500px;
-  width: 700px;
-  border-radius: 1%;
-  border: 5px solid rgba(226, 157, 156, 0.1);
-  bottom: 30px;
-  right: -100px;
-  opacity: 1;
-  z-index: 100;
-}
-
-.tooltips__content {
-  width: max-content;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.tooltips__content.is-open{
-  opacity:1;
+.tooltipss__positionnement--2 {
+  position: absolute;
+  bottom: 30px; 
+  right: 350px;
 }

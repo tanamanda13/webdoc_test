@@ -55,6 +55,7 @@ include 'assets/inc/header.php';
         <!-- <h1 class="hero__title title">LA VIE SECRÊTE DES CHAMPIGNONS</h1> -->
       </div>
       </article>
+      
     <!-- SOUS-PARTIE 1 -->
     <article class="subpart subpart1 sectionId">
       <div class="box__content">

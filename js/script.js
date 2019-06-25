@@ -116,8 +116,6 @@ document.addEventListener('wheel', event => {
       stepAdd();
     }
 
-
-
   } else {
     counter += 1
     if (counter % 10 === 0) {
@@ -132,11 +130,40 @@ document.addEventListener('wheel', event => {
 /*
 TOOLTIPS
 */
-
 // let toolTips = document.querySelectorAll('.tooltips');
+// let toolTipsContent = document.querySelectorAll('.tooltips__content');
+
+// // A FINIR
+// for (let indexToolTip = 0; indexToolTip < toolTips.length; indexToolTip++) {
+//   let toolTip = toolTips[indexToolTip];
+//   let toolTipContent = toolTips[indexToolTip];
+//   toolTip.addEventListener('click', function () {
+//     console.log(toolTips.length);
+//     console.log(toolTip);
+//     toolTip.classList.toggle('is-open');
+//     toolTipContent.classList.toggle('is-open');
+//   });
+// }
+
+// let toolTips = document.querySelector('.tooltips');
 // let toolTipsContent = document.querySelector('.tooltips__content');
 
 // toolTips.addEventListener('click', function () {
 //   toolTips.classList.toggle('is-open');
 //   toolTipsContent.classList.toggle('is-open');
 // });
+
+let toolTips = document.querySelector('.tooltips');
+let toolTipsContent = document.querySelector('.tooltips__content');
+let indexToolTip = 0;
+
+toolTips.addEventListener('click', () => {
+  content.forEach((section, i) => {
+    indexToolTip++;
+    if (i === indexToolTip) {
+      console.log(section);
+      toolTips.classList.toggle('is-open');
+      toolTipsContent.classList.toggle('is-open');
+    }
+  })
+})

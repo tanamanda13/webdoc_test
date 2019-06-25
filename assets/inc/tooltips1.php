@@ -3,7 +3,7 @@
     Comment les champignons façonnent la roche ?
   </span>
 
-  <div class="tooltips">
+  <div class="tooltips is-open">
     <div class="tooltips__content">
     <!-- <h1 class="tooltips__title">Coucou les copains</h1>
     <p class="tooltips__text">J'aime le chocolat</p> -->
