@@ -314,3 +314,12 @@ toolTips11.addEventListener('click', function () {
   toolTips11.classList.toggle('is-open');
   toolTipsContent.classList.toggle('is-open');
 });
+
+
+
+
+
+
+/*
+SON par FRAME 
+*/
