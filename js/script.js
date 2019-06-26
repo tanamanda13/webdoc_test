@@ -115,7 +115,7 @@ next.addEventListener('click', () => {
   if (index !== 0) {
     header.style.opacity = "1"
   }
-  if (index > 11) return;
+  if (index > 14) return;
   toogleAnimation(index, 'hide');
   index++;
   content.forEach((section, i) => {
