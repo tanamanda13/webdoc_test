@@ -15,7 +15,6 @@
       <video autoplay muted loop class="BG_video" id="bgvid">
         <source src="assets/media/videos/Mycelium_background_NB.mp4" type="video/mp4">
       </video>
-      <div class="subpart1__timeline timeline">
       </div>
       <div class="subpart1__main">
         <h1 class="subpart1__title title">LE RÔLE DES CHAMPIGNONS DANS<br> L'EVOLUTION DE LA VIE <br> TERRESTRE</h1>
