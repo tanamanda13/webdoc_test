@@ -1,5 +1,5 @@
-CREATE DATABASE webdoc CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE webdoc;
+CREATE DATABASE webdoc_test_mamp CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE webdoc_test_mamp;
 
 CREATE TABLE utilisateur (
   id INT(3) NOT NULL AUTO_INCREMENT,
