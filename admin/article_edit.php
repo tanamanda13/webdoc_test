@@ -2,6 +2,7 @@
 require_once 'assets/config/bootstrap.php';
 
 $article = getArticle($pdo, $_GET['id'] ?? 0);
+//$article = getArticle($pdo, $idd ?? 0);
 
 if (!$article) {
   addFlash('danger', 'Article inconnue');
@@ -9,25 +10,25 @@ if (!$article) {
   header('Location: index.php');
 }
 
-/// Traitement du formulaire d'edition
+// Traitement du formulaire d'edition
 if (isset($_POST['edit'])) {
   //$eId = $_SESSION['article']['id'];
-  $eId = $_GET['id'];
+  $eId = $article['id'];
   //$eId = intval($_GET['id']);
-  $idd = (int)$eId;
-  $titre = trim(strip_tags($_POST['titre']));
-  $description = trim(strip_tags($_POST['description']));
+  //$idd = (int)$eId;
+  $titre = htmlspecialchars(trim(strip_tags($_POST['titre'])), ENT_QUOTES);
+  $description = htmlspecialchars(trim(strip_tags($_POST['description'])), ENT_QUOTES);
 
-  if (strlen($titre) < 3 || strlen($titre) > 50) {
-    addFlash('danger', 'Le titre doit contenir entre 3 et 50 caractères');
+  if (strlen($titre) < 3 || strlen($titre) > 250) {
+    addFlash('danger', 'Le titre doit contenir entre 3 et 100 caractères');
   } elseif (strlen($description) > 255) {
     addFlash('danger', 'Le description ne peut contenir plus de 255 caractères');
   } else {
     $req = $pdo->prepare(
       "UPDATE article SET
-        titre = '$titre'
-        WHERE id = :eId"
-        
+        titre = '$titre',
+        description = '$description'
+        WHERE id = '$eId'"
     );
     $req->bindParam(':titre', $titre);
     //$req->bindParam(':id', $eId);
@@ -38,18 +39,13 @@ if (isset($_POST['edit'])) {
     // Récupérer la première valeur truthy:
     // $val1 ?: $val2 ?: $val3
     $req->bindValue(':desc', $description ?: null);
-    
-    // bindParam() n'accepte que des variables
-    // Récupérer la première valeur truthy:
-    // $val1 ?: $val2 ?: $val3
-    $req->bindValue(':desc', $description ?: null);
 
     // On vérifie que la requête s'exécute correctement
     $exec = $req->execute();
     if (!$exec) {
       addFlash('danger', 'Problème SQL');
     } else {
-      addFlash('success', 'Article enregistré !');
+      addFlash('success', 'Modification enregistrée !');
       unset($_POST);
     }
   }
@@ -64,9 +60,7 @@ include 'assets/inc/header.php';
 
     <?php viewFlashes(); ?>
 
-
-
-    <form action="article_edit.php" method="post">
+    <form action="article_edit.php?id=<?= $_GET['id'] ?>" method="post">
       <div class="form-group">
         <label>Titre</label>
         <input type="text" name="titre" class="form-control" value="<?= $article['titre']; ?>">
@@ -81,4 +75,6 @@ include 'assets/inc/header.php';
     </form>
   </div>
 
+
 <?php include 'assets/inc/footer.php'; ?>
+

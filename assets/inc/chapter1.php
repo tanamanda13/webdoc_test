@@ -18,6 +18,8 @@
       </div>
       <div class="subpart1__main">
         <h1 class="subpart1__title title">LE RÔLE DES CHAMPIGNONS DANS<br> L'EVOLUTION DE LA VIE <br> TERRESTRE</h1>
+        
+      
         <span class="subpart1__number title">01</span>
         <span class="subpart1__scroll title">SCROLL</span>
       </div>
