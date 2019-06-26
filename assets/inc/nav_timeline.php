@@ -33,13 +33,18 @@
       <p class="step__texts--years">65 millions d’années</p>
     </div>
     <div class="step steps__bar">
-    <div class="step-indicator step__1bar"></div>
+    <div class=" step-indicator step__0bars"></div>
+      <div class=" step-indicator step__3bars"></div>
+      <div class=" step-indicator step__3bars"></div>
+      <div class=" step-indicator step__3bars"></div>
+    </div>
     </div>
     <div class="step__text--default five">
       <p class="step__texts--mb">Le WOOD WIDE WEB</p>
       <p class="step__texts--years">10 millions d’années</p>
     </div>
     <div class="step steps__bar">
+
     </div>
     <div class="step__text--default six">
       <p class="step__texts--mb">Relation Homme - Champignon</p>
