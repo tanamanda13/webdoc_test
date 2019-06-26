@@ -781,17 +781,11 @@ TOOLTIPS
   max-width: 100%;
 }
 
-
-.tooltips__content.is-open{
-  opacity:1;
-}
-
-
- /*
+ /* 
  ABOUT
  */
 
-.about__wrapper {
+ .about__wrapper {
   height: 100%;
   width: 100%;
   position: relative;
