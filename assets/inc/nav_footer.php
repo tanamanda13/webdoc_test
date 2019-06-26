@@ -34,8 +34,9 @@
           </a>
         </li>
       <?php endif; ?>
+      <a href="about.php">
       <li class="footer__item">A PROPOS</li>
-
+      </a>
       <div class="buttons">
         <button class="button prev">prev</button>
         <button class="button next">next</button>
