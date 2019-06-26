@@ -16,11 +16,11 @@ if (isset($_POST['edit'])) {
   $eId = $article['id'];
   //$eId = intval($_GET['id']);
   //$idd = (int)$eId;
-  $titre = trim(strip_tags($_POST['titre']));
-  $description = trim(strip_tags($_POST['description']));
+  $titre = htmlspecialchars(trim(strip_tags($_POST['titre'])), ENT_QUOTES);
+  $description = htmlspecialchars(trim(strip_tags($_POST['description'])), ENT_QUOTES);
 
-  if (strlen($titre) < 3 || strlen($titre) > 50) {
-    addFlash('danger', 'Le titre doit contenir entre 3 et 50 caractères');
+  if (strlen($titre) < 3 || strlen($titre) > 250) {
+    addFlash('danger', 'Le titre doit contenir entre 3 et 100 caractères');
   } elseif (strlen($description) > 255) {
     addFlash('danger', 'Le description ne peut contenir plus de 255 caractères');
   } else {

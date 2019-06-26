@@ -4,46 +4,19 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <script defer src="js/script.js"></script> -->
+    <title>La vie secrète des champignons</title>
     <!-- Bootstrap CSS -->
    <!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
-   <link rel="stylesheet" href="css/reset.css"/>
-   <link rel="stylesheet" href="css/style.css"/>
-  <title class="title">Webdoc_mamp</title>
 </head>
+
 <body>
-<!-- Header HTML -->
-  <ul class="nav">
-    <li class="nav-item">
-      <a href="index.php" class="nav-link">
-        Home
-      </a>
-    </li>
-    <?php if(isConnected()): ?>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <?= getUserInfo('pseudo'); ?>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="login.php?logout" class="nav-link">
-          Déconnexion
-        </a>
-      </li>
 
-      <?php if (getUserInfo('type') === 'admin'): ?>
-        <li class="nav-item">
-          <a href="admin/" class="nav-link">
-            Back-Office
-          </a>
-        </li>
-      <?php endif; ?>
-
-    <?php else: ?> 
-      <li class="nav-item">
-        <a href="login.php" class="nav-link">
-          Connexion
-        </a>
-      </li>
-    <?php endif; ?>
   </ul>

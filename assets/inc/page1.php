@@ -3,3 +3,6 @@
         <h1><?php echo $title['titre']  ?></h1>
       </tbody>
     </table>
+
+<h1>LE RÔLE DU CHAMPIGNON DANS l’ÉVOLUTION DE LA VIE   TERRESTRE</h1>
+<h2>01</h2>

@@ -8,8 +8,8 @@ if (isset($_POST['add'])) {
   $titre = trim(strip_tags($_POST['titre']));
   $description = trim(strip_tags($_POST['description']));
 
-  if (strlen($titre) < 3 || strlen($titre) > 50) {
-    addFlash('danger', 'Le titre doit contenir entre 3 et 50 caractères');
+  if (strlen($titre) < 3 || strlen($titre) > 255) {
+    addFlash('danger', 'Le titre doit contenir entre 3 et 100 caractères');
   } elseif (strlen($description) > 255) {
     addFlash('danger', 'Le description ne peut contenir plus de 255 caractères');
   } else {

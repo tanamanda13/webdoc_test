@@ -14,10 +14,16 @@ include 'assets/inc/header.php';
       Ajouter un nouvel article
     </a>
 
+          
+        
+
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">#</th>
+        
+        <th scope="col">Chapitre 1</th>
+          <th scope="col">Partie</th>
+          
           <th scope="col">Titre</th>
           <th scope="col">Description</th>
           <th></th>
@@ -25,8 +31,10 @@ include 'assets/inc/header.php';
         </tr>
       </thead>
       <tbody>
+        
         <?php foreach(allArticles($pdo) as $article): ?>
           <tr>
+            <th></th>
             <th scope="row"><?= $article['id']; ?></th>
             <td><?= $article['titre']; ?></td>
             <td><?= $article['description']; ?></td>
@@ -42,6 +50,8 @@ include 'assets/inc/header.php';
             </td>
           </tr>
         <?php endforeach; ?>
+
+
         
       </tbody>
     </table>
