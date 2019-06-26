@@ -65,7 +65,7 @@ include 'assets/inc/header.php';
                 </h2>
                 <p> 
                     Ce site à été réalisé à des fins pédagogiques dans le cadre du cursus Bachelor de l’école HETIC. <br>
-                    Les contenus présentés ne sont en aucun cas exploités à des fins commerciales et ne seront pas publiés 
+                    Les contenus présentés ne sont en aucun cas exploités à des fins commerciales et ne seront pas publiés. 
                 </p>
             </div>    
         </div>
