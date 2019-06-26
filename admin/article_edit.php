@@ -9,8 +9,12 @@ if (!$article) {
   header('Location: index.php');
 }
 
-// Traitement du formulaire d'ajout
-if (isset($_POST['add'])) {
+/// Traitement du formulaire d'edition
+if (isset($_POST['edit'])) {
+  //$eId = $_SESSION['article']['id'];
+  $eId = $_GET['id'];
+  //$eId = intval($_GET['id']);
+  $idd = (int)$eId;
   $titre = trim(strip_tags($_POST['titre']));
   $description = trim(strip_tags($_POST['description']));
 
@@ -20,15 +24,21 @@ if (isset($_POST['add'])) {
     addFlash('danger', 'Le description ne peut contenir plus de 255 caractères');
   } else {
     $req = $pdo->prepare(
-      'INSERT INTO article (
-        titre,
-        description
-      ) VALUES (
-        :titre,
-        :desc
-      )'
+      "UPDATE article SET
+        titre = '$titre'
+        WHERE id = :eId"
+        
     );
     $req->bindParam(':titre', $titre);
+    //$req->bindParam(':id', $eId);
+    $req->bindParam(':eid', $eId);
+    //$req->bindParam(':id', $idd);
+    //$req->bindParam(':id', $_GET['id']);
+    // bindParam() n'accepte que des variables
+    // Récupérer la première valeur truthy:
+    // $val1 ?: $val2 ?: $val3
+    $req->bindValue(':desc', $description ?: null);
+    
     // bindParam() n'accepte que des variables
     // Récupérer la première valeur truthy:
     // $val1 ?: $val2 ?: $val3
