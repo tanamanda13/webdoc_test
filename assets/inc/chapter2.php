@@ -1,4 +1,4 @@
-<section class="container container--page2">
+<section id="chapter2" class="container container--page2">
 
 <!-- SOUS-PARTIE 10 -->
  <article class="subpart subpart10 sectionId">
@@ -19,14 +19,17 @@
   <article class="subpart subpart11 sectionId">
     <div class="box__content">
       <div class="subpart11__main">
-        <h3 class="subpart11__subtitle subtitle">FIN DE LA GRANDE PÉRIODE GLACIÈRE</h3>
+        <h3 class="subpart11__subtitle subtitle">NÉOGÈNE</h3>
         <h2 class="subpart11__title title">WOOD WIDE WEB<br>
           <hr> L'INTERNET VÉGÉTAL
         </h2>
         <p class="subpart11__paragraph paragraph">Les plantes comme les Humains échangent, communiquent, coopèrent. Comment ? <br>Grâce au réseau de  mycelium ! </p>
         <img class="subpart11__image" src="assets/media/reseaumush.png" />
       </div>
-      <?php include 'assets/inc/tooltips1.php' ?>
+      <div><?php include 'assets/inc/tooltips7.php' ?></div>
+      <div><?php include 'assets/inc/tooltips8.php' ?></div>
+      <div><?php include 'assets/inc/tooltips9.php' ?></div>
+      <div><?php include 'assets/inc/tooltips10.php' ?></div>
     </div>
   </article>
 
@@ -41,23 +44,4 @@
     </div>
   </article>
 
-  <!-- SOUS-PARTIE 13 -->
-  <article class="subpart subpart4 sectionId">
-    <div class="box__content">
-      <video autoplay muted loop class="BG_video--circle" id="bgvid">
-        <source src="assets/media/videos/BBBcircle.mp4" type="video/mp4">
-      </video>
-      <div class="subpart4__main">
-        <h3 class="subpart4__subtitle subtitle">PROTÉROZOIQUE TARDIF</h3>
-        <h2 class="subpart4__title title">LE BIG BANG <br>
-          <hr> BIOLOGIQUE
-        </h2>
-        <p class="subpart4__paragraph paragraph">Il y a 470 millions d'années, la vie se développe peu à peu sur la
-          terre ferme délaissant le milieu aquatique. De bleue, notre planète devient verte.</p>
-      </div>
-      <div><?php include 'assets/inc/tooltips2.php' ?>
-      </div>
-      <div><?php include 'assets/inc/tooltips3.php' ?></div>
-    </div>
-  </article>
 </section>

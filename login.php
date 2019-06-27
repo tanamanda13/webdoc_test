@@ -1,6 +1,8 @@
 <?php
 require_once 'assets/config/bootstrap.php';
 
+// include 'assets/inc/header.php';
+
 // Traitement du formulaire de connexion
 if (isset($_POST['login'])) {
   // Rechercher l'utilisateur
@@ -43,31 +45,38 @@ if(isset($_GET['logout'])) {
 
 // Début de page
 $page_title = 'Connexion';
-include 'assets/inc/header.php'; 
+include 'assets/inc/header-login.php'; 
 ?>
 
-<div class="container border mt-4 p-4">
-  <h1>Connexion</h1>
+<!--<div class="container border mt-4 p-4">-->
+<div class="box__login">  
+  <div class="box__login--sub">
+    <h1 class="title__login">Accéder au compte admnistrateur</h1>
 
-  <?php viewFlashes(); ?>
+    <?php viewFlashes(); ?>
 
-  <?php foreach (getFlashes() as $flash): ?>
-    <div class="alert alert-<?= $flash['type']; ?>">
-      <?= $flash['content']; ?>
-    </div>
-  <?php endforeach; ?>
+    <?php foreach (getFlashes() as $flash): ?>
+      <div class="alert alert-<?= $flash['type']; ?>">
+        <?= $flash['content']; ?>
+      </div>
+    <?php endforeach; ?>
 
-  <form action="login.php" method="post">
-    
-      <label>Email / Pseudo</label>
-      <input type="text" class="form-control" name="identifiant"> 
+    <form class="form__login" action="login.php" method="post">
+      
+        <label class="label__login">Email | Pseudo :</label>
+        <span><input class="input__login" type="text"  name="identifiant"><br></span>
 
-      <label>Mot de passe</label>
-      <input type="password" name="mdp" class="form-control">
+        <label class="label__login">Mot de passe : </label>
+        <span><input class="input__login" type="password" name="mdp" ><br></span>
 
-      <input type="submit" name="login" class="btn btn-primary" value="Connexion">
-    
-  </form>
+        <input class="input__login--btn" type="submit" name="login" value="Connexion">
+      
+    </form>
+  </div>
+  
 </div>
+
+
+<?php include 'assets/inc/nav_footer.php'; ?>
 
 <?php include 'assets/inc/footer.php'; ?>
