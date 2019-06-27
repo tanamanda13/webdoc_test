@@ -34,12 +34,13 @@
           </a>
         </li>
       <?php endif; ?>
-      <a href="about.php">
-      <li class="footer__item">A PROPOS</li>
-      </a>
+      <li class="footer__item">
+        <a href="about.php">
+      A PROPOS</a></li>
       <div class="buttons">
-        <button class="button prev">prev</button>
-        <button class="button next">next</button>
+        <div class="pauseBtn pause"></div>
+        <div class="muteBtn muteOn"></div>
+        <div class="skip"></div>
       </div>
     </div>
   </div>
