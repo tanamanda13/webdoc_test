@@ -1,8 +1,8 @@
-CREATE DATABASE webdoc_test_mamp
+CREATE DATABASE webdoc
 CHARACTER
 SET utf8
 COLLATE utf8_unicode_ci;
-USE webdoc_test_mamp;
+USE webdoc;
 
 CREATE TABLE utilisateur
 (
