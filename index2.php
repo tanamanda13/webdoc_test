@@ -49,10 +49,11 @@ include 'assets/inc/header.php';
 
 <?php
 // Timeline
-include 'assets/inc/nav_timeline.php';
+include 'assets/inc/nav_timeline2.php';
 
 // Barre de navigation
 include 'assets/inc/nav_footer.php';
+
 // Fin de page (scripts)
 include 'assets/inc/footer2.php';
 ?>

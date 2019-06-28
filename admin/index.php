@@ -10,9 +10,9 @@ include 'assets/inc/header.php';
 
     <?php viewFlashes(); ?>
 
-    <a href="article_add.php" class="btn btn-primary">
+    <!-- <a href="article_add.php" class="btn btn-primary">
       Ajouter un nouvel article
-    </a>
+    </a> -->
 
           
         
@@ -43,11 +43,11 @@ include 'assets/inc/header.php';
                 Modifier
               </a>
             </td>
-            <td>
+            <!-- <td>
               <a href="#" class="btn btn-danger">
                 Supprimer
               </a>
-            </td>
+            </td> -->
           </tr>
         <?php endforeach; ?>
 

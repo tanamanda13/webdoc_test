@@ -66,7 +66,7 @@
   <!-- SOUS-PARTIE 4 -->
   <article class="subpart subpart4 sectionId">
     <div class="box__content">
-      <video autoplay  loop class="BG_video--circle" id="bgvid">
+      <video autoplay loop class="BG_video--circle" id="bgvid">
         <source src="assets/media/videos/BBBcircle.mp4" type="video/mp4">
       </video>
       <div class="subpart4__main">
@@ -79,10 +79,9 @@
         $paragraphe = $text->fetch(); ?>
 
         <p class="subpart4__paragraph paragraph"><?php echo $paragraphe['description']  ?></p>
-        <audio class="audio" id="audio-player" src="assets/media/audios/bbb.mp3"></audio>
+        <audio class="audio" id="audio-player" src="assets/media/audios/rocheTerre.mp3"></audio>
       </div>
-      <div><?php include 'assets/inc/tooltips2.php' ?>
-      </div>
+      <div><?php include 'assets/inc/tooltips2.php' ?></div>
       <div><?php include 'assets/inc/tooltips3.php' ?></div>
     </div>
   </article>
@@ -171,7 +170,7 @@
         <img class="subpart8__image" src="assets/media/t-rex.png" />
         <img class="subpart8__image--2" src="assets/media/meteors.png" />
       </div>
-      <audio class="audio" id="audio-player" src="assets/media/audios/ereNouvelle.mp3"></audio>
+      <audio class="audio" id="audio-player" src="assets/media/audios/meteorite.mp3"></audio>
       <div><?php include 'assets/inc/tooltips4.php' ?></div>
       <div><?php include 'assets/inc/tooltips5.php' ?></div>
       <div><?php include 'assets/inc/tooltips6.php' ?></div>

@@ -37,7 +37,7 @@
   <article class="subpart subpart12 sectionId">
     <div class="box__content">
       <video autoplay class="BG_video" id="bgvid">
-        <source src="assets/media/videos/www_bbc.mp4" type="video/mp4">
+        <source src="assets/media/videos/final_video_www.mp4" type="video/mp4">
       </video>
       <div class="subpart12__main">
       </div>

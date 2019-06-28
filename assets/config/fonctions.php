@@ -123,3 +123,22 @@ function getArticle(PDO $con, int $id)
 //   $req->execute();
 //   return $req->fetch(PDO::FETCH_ASSOC);
 // }
+
+function allPosts(PDO $con) : array
+{
+  $req = $con->query('SELECT * FROM posts');
+  return $req->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Récupérer un post
+function getPost(PDO $con, int $id)
+{
+  $req = $con->prepare(
+    'SELECT *
+    FROM posts
+    WHERE id = :id'
+  );
+  $req->bindParam(':id', $id, PDO::PARAM_INT);
+  $req->execute();
+  return $req->fetch(PDO::FETCH_ASSOC);
+}

@@ -22,4 +22,9 @@
         Articles
       </a>
     </li>
+    <li class="nav-item">
+      <a href="posts.php" class="nav-link">
+        Posts
+      </a>
+    </li>
   </ul>

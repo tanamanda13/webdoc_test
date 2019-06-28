@@ -62,16 +62,15 @@ width="64" height="64" style="display:none;">
     d="M54.2 2H9.8A7.8 7.8 0 0 0 2 9.8v44.4A7.8 7.8 0 0 0 9.8 62h44.4a7.8 7.8 0 0 0 7.8-7.8V9.8A7.8 7.8 0 0 0 54.2 2zm-6.8 31.4l-8 8a2 2 0 0 1-2.8-2.8l4.6-4.6H20a2 2 0 0 1 0-4h21.2l-4.6-4.6a2 2 0 1 1 2.8-2.8l9.4 9.4z"></path>
   </symbol>
 </svg>
-
 </svg>
 
 <body>
 <section class="adblock">
   <h1 class="adblock__title title">La vie secrète des champignons</h1>
-  <p class="adblock__text paragraph">Pour profiter au mieux de l'expérience de ce <strong>webdocumentaire</strong>, nous vous recommandons d'activer le son ou de mettre un casque audio.</p>
+  <p class="adblock__text paragraph">Pour profiter au mieux de l'expérience de ce <strong>webdocumentaire</strong>, nous vous recommandons d'activer le son ou de mettre un <strong>casque audio</strong>.</p>
   <p class="adblock__text paragraph">La navigation s'effectuera au scroll ou avec les flèches de gauche et de droite.
   </p>
-  <div class="adblock__icons">
+  <div class="sectionId adblock__icons">
     <div class="middle">
       <div class="mouse">
     </div>
@@ -82,7 +81,8 @@ width="64" height="64" style="display:none;">
       <use xlink:href="#icon__right"></use>
     </svg>
   </div>  
-  <button class="disable__adblock subtitle">Commencer l'expérience</button>
+  <p class="scrollNow subtitle">Scroller pour commencer la visite</p>
+  <!-- <button class="disable__adblock subtitle">Commencer l'expérience</button> -->
   
 </section>
 

@@ -6,6 +6,11 @@
           ACCUEIL
         </a>
       </li>
+      <li class="footer__item">
+        <a href="posts.php">
+          LIVRE D'OR
+        </a>
+      </li>
     </div>
     <div class="footer__grp">
     <svg class="social__icon" aria-hidden="true">

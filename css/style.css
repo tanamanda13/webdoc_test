@@ -268,8 +268,10 @@ STYLE GÉNÉRAL
 }
 
 .container--page2 {
-  background-color: yellow;
-}
+  width: 300vw;
+  height: 93.4vh;
+  display: flex;
+  flex-direction: row;}
 
 .header,
 .footer {
@@ -369,7 +371,10 @@ TIMELINE
   width: 50%;
   height: 80%;
 }
-
+.step__4bars {
+  width: 25%;
+  height: 80%;
+}
 .step__1bar {
   width: 100%;
   height: 80%;
@@ -465,6 +470,14 @@ TIMELINE
 
 .inactive {
   opacity: 0
+}
+
+/* 
+TIMELINE 2
+*/
+
+.completedNew {
+  background: var(--dark-pink);
 }
 
 /* 
@@ -745,6 +758,12 @@ VIDEOS
   object-fit: cover;
 }
 
+.subpart12 .BG_video {
+  height: 40%;
+  object-fit: none;
+
+}
+
 .BG_video--circle {
   right: 0;
   bottom: 0;
@@ -810,10 +829,9 @@ TOOLTIPS
   overflow: hidden;
   background-color: rgba(206, 195, 194, 0.98);
   border: 10px solid rgba(226, 157, 156, 0.1);
-  /* filter: blur(10%); */
-  transform: scale(0%);
-  transition: transform 0.5s;
-  /* transition: height 0.5s, width 0.5s, border-radius 0.3s, opacity 0.5s; */
+  /* transform: scale(0%);
+  transition: transform 0.5s; */
+  transition: height 0.5s, width 0.5s, border-radius 0.3s, opacity 0.5s;
 }
 
 /* Tooltips open du bas */
@@ -1313,6 +1331,23 @@ INFOS NAVIGATION
   margin-top: 30px;
 }
 
+.scrollNow {
+  display: block;
+  width: 350px;
+  height: 50px;
+  margin-top: 50px;
+  padding: inherit;
+  background-color: var(--pink-black);
+  color: var(--light-pink);
+  font-size: 16px;
+  margin-top: 75px;
+  text-align: center;
+}
+
+.scrollNow:hover {
+  color: white;
+}
+
 .middle {
   display: flex;
   justify-content: center;
@@ -1401,3 +1436,4 @@ INFOS NAVIGATION
 .muteOff {
   background-image:  url('../assets/media/icons/muteOff.png');
 }
+

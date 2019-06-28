@@ -9,7 +9,7 @@
     <p class="tooltips__text">
     Les champignons se reproduisent avec des spores (comme les graines pour les végétaux. Au contact de la roche, ces derniers vont sécreter des enzymes afin de la dissoudre et de faciliter la pénétration de leurs hyphes (équivalent des radicelles pour les végétaux) à l'intérieur. Peu à peu, la roche se décompose et se transforme en terre.
     </p>
-    <video autoplay muted loop class="tooltips_video">
+    <video autoplay loop class="tooltips_video">
       <source src="assets/media/videos/vid_01_01.mp4" type="video/mp4">
     </video>
     <div>

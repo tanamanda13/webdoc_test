@@ -16,8 +16,7 @@
     <br>-Ingénieur, il peut tracer un réseau de transport optimal entre plusieurs villes.
     <br>-Fin gourmet, il adore les champignons, les flocons d’avoine et les flans aux œufs.
     </p>
-    <p class="tooltips__text">Si vous voulez en savoir plus sur cet organisme hors du commun, <a href="http://www.palais-decouverte.fr/fileadmin/fileadmin_Palais/fichiersContribs/au-programme/activites/1chercheur1manip/Blob/Panneaux-Blob-web.pdf" target="_blank">cliquez-ici</a>.</p>
+    <p class="tooltips__text">Si vous voulez en savoir plus sur cet organisme hors du commun, <a href="http://www.palais-decouverte.fr/fileadmin/fileadmin_Palais/fichiersContribs/au-programme/activites/1chercheur1manip/Blob/Panneaux-Blob-web.pdf" target="_blank">cliquez-ici</a> ou <a href="https://www.youtube.com/watch?time_continue=56&v=47qiwqKRef0"  target="_blank">ici</a>.</p>
     <div>
   </div>
-</div> 
-
+</div>

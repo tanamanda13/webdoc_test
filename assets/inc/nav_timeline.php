@@ -25,8 +25,10 @@
       <p class="step__texts--years">450 MILLIONS D’ANNÉES </p>
     </div>
     <div class="step steps__bar">
-      <div class=" step-indicator step__2bars none"></div>
-      <div class=" step-indicator step__2bars none"></div>
+      <div class="step-indicator step__4bars none"></div>
+      <div class="step-indicator step__4bars none"></div>
+      <div class="step-indicator step__4bars none"></div>
+      <div class="step-indicator step__4bars none"></div>
     </div>
     <div class="step__text--default four">
       <p class="step__texts--mb">Le début d’une nouvelle ère</p>

@@ -12,13 +12,11 @@ var currentAudio;
 var videos = document.querySelectorAll('video');
 var audios = document.querySelectorAll('audio');
 var closeAdd = document.querySelector('.disable__adblock');
-const idlePeriod = 100;
-const animationDuration = 1000;
 var counter = 0;
 var counterAdd = 1;
 var modulo = 60;
 let lastAnimation = 0;
-var index = -1;
+var index = 0;
 
 /*
   TIMELINE
@@ -28,11 +26,10 @@ var index = -1;
 // var index2 = sessionStorage.getItem(index1);
 // console.log('index: ', index2);
 
-//content[0].scrollIntoView({ behavior: "smooth" });
 
-// if (index == -1 || index ==0 ) {
-//   header.style.opacity="0"
-// }
+if (index == 0) {
+  header.style.opacity = "0"
+}
 
 //fonction qui permet d'ajouter des classes à l'élément html souhaité lors de son apparition dans le viewport
 const toogleAnimation = (index, state) => {
@@ -44,30 +41,49 @@ const toogleAnimation = (index, state) => {
     content[index].querySelector('.box__content').classList.remove('show');
   }
 }
+
+function checkMedia(section) {
+  if (section.querySelector('.box__content > video') != null) {
+    var video = section.querySelector('.box__content > video')
+    currentVideo = video
+    currentVideo.play();
+    video.currentTime = 0;
+    console.log('currentVideo: ', currentVideo);
+  }
+  if (section.querySelector('.box__content > audio') != null) {
+    var audio = section.querySelector('.box__content > audio')
+    currentAudio = audio
+    currentAudio.play()
+    audio.currentTime = 0;
+    console.log('currentAudio: ', currentAudio);
+  }
+}
+//
+function checkHeader() {
+  if (index == -1) {
+    header.style.opacity = "0"
+  }
+  else if (index == 1) {
+    header.style.opacity = "0"
+  } else {
+    header.style.opacity = "1"
+  }
+}
 // fonction pour faire apparaitre la prochaine section 
 function scrollRight() {
-  if (index < 9) {
+  if (index < 10) {
     for (let i = 0; i < audios.length; i++) {
       audios[i].pause();
     }
+    for (let i = 0; i < videos.length; i++) {
+      videos[i].pause();
+    }
     console.log(currentAudio)
     index++;
+    checkHeader();
     content.forEach((section, i) => {
       if (i === index) {
-        if (section.querySelector('.box__content > video') != null) {
-          var video = section.querySelector('.box__content > video')
-          currentVideo = video
-          currentVideo.play();
-          video.currentTime = 0;
-          console.log('currentVideo: ', currentVideo);
-        }
-        if (section.querySelector('.box__content > audio') != null) {
-          var audio = section.querySelector('.box__content > audio')
-          currentAudio = audio
-          currentAudio.play()
-          audio.currentTime = 0;
-          console.log('currentAudio: ', currentAudio);
-        }
+        checkMedia(section)
         //toogleAnimation(i, 'show');
         stepAdd();
         section.scrollIntoView({ behavior: "smooth" });
@@ -81,26 +97,18 @@ function scrollLeft() {
   for (let i = 0; i < audios.length; i++) {
     audios[i].pause();
   }
+  for (let i = 0; i < videos.length; i++) {
+    videos[i].pause();
+  }
   if (index > 0) {
     console.log('sa décroll')
     index--;
+    checkHeader();
     console.log(currentVideo)
     localStorage.setItem('index', index);
     content.forEach((section, i) => {
       if (i === index) {
-        if (section.querySelector('.box__content > video') != null) {
-          var video = section.querySelector('.box__content > video')
-          currentVideo = video
-          currentVideo.play()
-          video.currentTime = 0;
-        }
-        if (section.querySelector('.box__content > audio') != null) {
-          var audio = section.querySelector('.box__content > audio')
-          currentAudio = audio
-          currentAudio.play()
-          audio.currentTime = 0;
-          console.log('current audio: ', currentAudio);
-        }
+        checkMedia(section);
         setTimeout(() => {
           //toogleAnimation(i + 1, 'hide');
         }, 2000);
@@ -110,7 +118,6 @@ function scrollLeft() {
     });
   }
 }
-console.log('currentVideo: ', currentVideo);
 //navigation with arrows keys
 window.onkeyup = function (e) {
   var key = e.keyCode ? e.keyCode : e.which;
@@ -128,11 +135,16 @@ window.onkeyup = function (e) {
         section.scrollIntoView({ behavior: "smooth" });
       }
     })
-  } else if (key == 38) {
-    console.log(currentAudio);
+  } else if (key == 32) {
+    if (currentAudio.paused) {
+      currentAudio.play()
+      pauseBtn.className = "pauseBtn pause"
+    } else {
+      currentAudio.pause()
+      pauseBtn.className = "pauseBtn play"
+    }
   }
 }
-
 //Écoute du scroll par la "wheel"
 document.addEventListener('wheel', event => {
   var delta = event.wheelDelta;
@@ -153,11 +165,12 @@ document.addEventListener('wheel', event => {
 })
 
 /*
-clique sur la timeline
+  clique sur la timeline
 */
 
 var stepOne = document.querySelector('.one');
 stepOne.addEventListener('click', function () {
+  pauseMedia()
   console.log('hey2')
   index = 2;
   content.forEach((section, i) => {
@@ -171,6 +184,7 @@ stepOne.addEventListener('click', function () {
       for (let i = 0; i < index; i++) {
         steps[i + 1].classList.add('completed');
       }
+      checkMedia(section);
       section.scrollIntoView({ behavior: "smooth" });
     }
   })
@@ -178,6 +192,7 @@ stepOne.addEventListener('click', function () {
 //
 var stepTwo = document.querySelector('.two');
 stepTwo.addEventListener('click', function () {
+  pauseMedia()
   index = 4;
   content.forEach((section, i) => {
     if (i === index) {
@@ -190,6 +205,7 @@ stepTwo.addEventListener('click', function () {
       for (let i = 0; i < index; i++) {
         steps[i + 1].classList.add('completed');
       }
+      checkMedia(section);
       section.scrollIntoView({ behavior: "smooth" });
     }
   })
@@ -197,6 +213,7 @@ stepTwo.addEventListener('click', function () {
 //
 var stepThree = document.querySelector('.three')
 stepThree.addEventListener('click', function () {
+  pauseMedia()
   console.log('hey3')
   index = 6;
   content.forEach((section, i) => {
@@ -210,6 +227,7 @@ stepThree.addEventListener('click', function () {
         steps[i + 1].classList.add('completed');
       }
       steps[0].classList.add('completed');
+      checkMedia(section);
       section.scrollIntoView({ behavior: "smooth" });
     }
   })
@@ -217,6 +235,7 @@ stepThree.addEventListener('click', function () {
 //
 var stepFour = document.querySelector('.four')
 stepFour.addEventListener('click', function () {
+  pauseMedia()
   console.log('hey4')
   index = 8;
   content.forEach((section, i) => {
@@ -230,11 +249,27 @@ stepFour.addEventListener('click', function () {
         steps[i + 1].classList.add('completed');
       }
       steps[0].classList.add('completed');
+      checkMedia(section);
       section.scrollIntoView({ behavior: "smooth" });
     }
   })
 })
-
+//
+function pauseMedia() {
+  if (currentVideo != null) {
+    currentVideo.pause()
+  } else {
+    currentAudio.pause()
+  }
+}
+//
+function playMedia() {
+  if (currentVideo != null) {
+    currentVideo.play()
+  } else {
+    currentAudio.play()
+  }
+}
 //fonction qui ajoute la classe completed dans le bon step dans la timeline
 function stepAdd() {
   if (index == 1) {
@@ -252,32 +287,15 @@ function stepRemove() {
 // VIDEO
 // */
 
-if (window.matchMedia('(prefers-reduced-motion)').matches) {
-  currentVideo.removeAttribute("autoplay");
-  currentVideo.pause();
-}
-
+//init toutes les vidéos en pause
 for (let i = 0; i < videos.length; i++) {
-  videos[i].pause();
+  videos[i].pause()
 }
-
-//ajoute un effet lors de la pause de la vidéo
-function vidFade() {
-  currentVideo.classList.add("stopfade");
-}
-
-//fonction pour mettre pause  sur l'élément  qui à l'attreibut ended
-currentVideo.addEventListener('ended', function () {
-  // only functional if "loop" is removed 
-  currentVideo.pause();
-  // to capture IE10
-  vidFade();
-})
-
 //function permettant de  mettre pause
 pauseBtn.addEventListener("click", function () {
   if (currentVideo.paused) {
     currentVideo.play();
+
     pauseBtn.className = "pauseBtn pause"
   } else {
     //currentVideo.classList.add('pauseState')
@@ -288,7 +306,7 @@ pauseBtn.addEventListener("click", function () {
 
 muteBtn.addEventListener('click', function () {
   if (videos[0].muted || audios[0].muted) {
-    muteBtn.className = "pauseBtn muteOff"
+    muteBtn.className = "muteBtn muteOn"
     for (let i = 0; i < videos.length; i++) {
       videos[i].muted = false;
     }
@@ -296,7 +314,7 @@ muteBtn.addEventListener('click', function () {
       audios[i].muted = false
     }
   } else {
-    muteBtn.className = "pauseBtn muteOn"
+    muteBtn.className = "muteBtn muteOff"
     for (let i = 0; i < videos.length; i++) {
       videos[i].muted = true;
     }
@@ -305,14 +323,9 @@ muteBtn.addEventListener('click', function () {
     }
   }
 })
-
+//
 skipBtn.addEventListener('click', function () {
   scrollRight();
-})
-closeAdd.addEventListener('click', function () {
-  document.querySelector('.adblock').remove();
-  index = 0;
-  videos[0].play();
 })
 
 /*
@@ -328,44 +341,38 @@ let toolTips5 = document.querySelector('.tooltips--5');
 let toolTips6 = document.querySelector('.tooltips--6');
 let toolTips7 = document.querySelector('.tooltips--7');
 let toolTipsBlob = document.querySelector('.tooltips--Blob');
-
-
+//
 toolTips1.addEventListener('click', function () {
   toolTips1.classList.toggle('is-open');
   toolTipsContent.classList.toggle('is-open');
 });
-
+//
 toolTips2.addEventListener('click', function () {
   toolTips2.classList.toggle('is-open');
   toolTipsContent.classList.toggle('is-open');
 });
-
+//
 toolTips3.addEventListener('click', function () {
   toolTips3.classList.toggle('is-open');
   toolTipsContent.classList.toggle('is-open');
 });
-
+//
 toolTips4.addEventListener('click', function () {
   toolTips4.classList.toggle('is-open');
   toolTipsContent.classList.toggle('is-open');
 });
-
+//
 toolTips5.addEventListener('click', function () {
   toolTips5.classList.toggle('is-open');
   toolTipsContent.classList.toggle('is-open');
 });
-
+//
 toolTips6.addEventListener('click', function () {
   toolTips6.classList.toggle('is-open');
   toolTipsContent.classList.toggle('is-open');
 });
-
+//
 toolTipsBlob.addEventListener('click', function () {
   toolTipsBlob.classList.toggle('is-open');
   toolTipsContent.classList.toggle('is-open');
 });
-
-
-/*
-SON par FRAME
-*/
