@@ -16,10 +16,10 @@ Aucun framework utilisé, tout est fait en natif : HTML, CSS et JAVASCRIPT
 
 ## Contributors
 
-Victor Balducci 
-Arthur Barré 
-Alice Gordwin 
-Fiona Roux 
+Victor Balducci, 
+Arthur Barré, 
+Alice Gordwin, 
+Fiona Roux, 
 Amanda Tan 
 
 
