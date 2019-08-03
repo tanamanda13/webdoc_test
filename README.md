@@ -12,7 +12,7 @@ base de données : webdoc.sql
 
 ## Requirements
 
-Aucun framework utilisé, tout est fait en natif : HTML, CSS et JAVASCRIPT
+Aucun framework utilisé, tout est fait en natif : HTML, CSS, JAVASCRIPT, PHP
 
 ## Contributors
 
